@@ -1,9 +1,10 @@
+
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function ProductCard({ product }) {
   return (
-    <Link href={`/product/${product.id}`} className="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+    <Link href={`/products/${product.id}`} className="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
       <div className="aspect-w-1 aspect-h-1 relative">
         <Image
           src={product.images[0]}
