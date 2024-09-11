@@ -1,4 +1,3 @@
-// utils/api.js
 export async function fetchProducts(page = 1, limit = 20) {
   const skip = (page - 1) * limit;
   try {

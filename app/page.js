@@ -1,4 +1,3 @@
-// app/page.js
 import { fetchProducts } from './utils/api';
 import Layout from './components/Layout';
 import ProductGrid from './components/ProductGrid';
@@ -10,19 +9,18 @@ export default async function Home({ searchParams }) {
 
   try {
     const data = await fetchProducts(page, limit);
-    const products = data || [];
-    const total = data || 0;
+    const products = data.products || [];
+    const total = data.total || 0;
 
     return (
       <Layout>
         <h1 className="text-3xl font-bold mb-8">Welcome to Our E-commerce Store</h1>
         <ProductGrid products={products} />
-        {total > 0 && (
-          <Pagination currentPage={page} totalProducts={total} limit={limit} />
-        )}
+        <Pagination currentPage={page} totalProducts={total} limit={limit} />
       </Layout>
     );
   } catch (error) {
+    console.error('Error in Home component:', error);
     return (
       <Layout>
         <div className="text-center text-red-500">

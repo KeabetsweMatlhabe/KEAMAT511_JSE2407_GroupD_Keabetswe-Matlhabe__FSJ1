@@ -1,4 +1,4 @@
-// app/products/[id]/page.js
+
 import { fetchProductById } from '../../utils/api';
 
 export default async function ProductDetailPage({ params }) {
