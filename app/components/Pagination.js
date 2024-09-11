@@ -5,7 +5,6 @@ export default function Pagination({ currentPage, totalProducts, limit }) {
   const prevPage = currentPage > 1 ? currentPage - 1 : null;
   const nextPage = currentPage < totalPages ? currentPage + 1 : null;
 
-  
   return (
     <div className="flex justify-between items-center mt-8">
       {prevPage ? (

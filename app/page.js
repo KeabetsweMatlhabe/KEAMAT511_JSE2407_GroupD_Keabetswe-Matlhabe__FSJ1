@@ -14,7 +14,7 @@ export default async function Home({ searchParams }) {
 
     return (
       <Layout>
-        <h1 className="text-3xl font-bold mb-8">Welcome to Our E-commerce Store</h1>
+        <h1 className="text-3xl font-bold mb-8">Welcome to Our BlackCurrent Store</h1>
         <ProductGrid products={products} />
         <Pagination currentPage={page} totalProducts={total} limit={limit} />
       </Layout>

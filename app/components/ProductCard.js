@@ -1,12 +1,12 @@
 import Link from 'next/link';
-import image from 'next/image';
+import Image from 'next/image';
 
 export default function ProductCard({ product }) {
   return (
     <Link href={`/products/${product.id}`} className="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-      <div className="aspect-w-1 aspect-h-1 relative">
-        <img
-          src={product.images[0]}
+      <div className="aspect-w-1 aspect-h-1 relative w-full h-48">
+        <Image
+          src={product.thumbnail}
           alt={product.title}
           layout="fill"
           objectFit="cover"
@@ -20,4 +20,3 @@ export default function ProductCard({ product }) {
     </Link>
   );
 }
-
