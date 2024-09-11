@@ -1,14 +1,12 @@
-import { fetchProductById } from '../api';
+// app/products/[id]/page.js
 
-/**
- * Product detail page that shows information about a specific product.
- * @param {object} params - The dynamic route params object, contains the product id.
- */
+import { fetchProductById } from '../../utils/api';
+
 export default async function ProductDetailPage({ params }) {
   const { id } = params;
+
   try {
     const product = await fetchProductById(id);
-
     return (
       <div className="p-6">
         <h1 className="text-3xl font-bold">{product.title}</h1>
