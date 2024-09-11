@@ -1,4 +1,4 @@
-import { fetchProductById } from '../../utils/api';
+import { fetchProductById } from '../api';
 
 /**
  * Product detail page that shows information about a specific product.
