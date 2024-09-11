@@ -1,5 +1,4 @@
-
-
+// app/components/ProductGrid.js
 import ProductCard from './ProductCard';
 
 export default function ProductGrid({ products = [] }) {
