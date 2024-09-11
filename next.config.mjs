@@ -3,6 +3,7 @@ const nextConfig = {
     images: {
       domains: ['next-ecommerce-api.vercel.app'],
     },
+    
   };
   
   export default nextConfig;
