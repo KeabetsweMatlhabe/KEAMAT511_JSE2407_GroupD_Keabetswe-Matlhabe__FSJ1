@@ -1,30 +1,44 @@
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function ProductCard({ product }) {
+  const stockStatus = product.stock > 0 ? `${product.stock} left in stock` : 'Out of stock';
+  const discountPercentage = product.discountPercentage ? `${product.discountPercentage}% OFF` : null;
+
   return (
-    <Link href={`/products/${product.id}`} className="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow lg:flex lg:items-start lg:max-w-6xl xl:max-w-7xl">
-      <div className="mx-auto w-2/5 flex-none">
+    <div className="border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow bg-white">
+      <div className="relative">
         <img
-          src={product.images[0]}
+          src={product.images[0] || '/placeholder-image.jpg'}
           alt={product.title}
-          className="w-[90%] h-[90%]"
+          className="w-full h-48 object-cover"
         />
+        {discountPercentage && (
+          <span className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+            {discountPercentage}
+          </span>
+        )}
       </div>
-      <div className="mx-auto w-[90%] space-y-2 p-4">
-        <h2 className="font-semibold text-2xl md:text-4xl lg:text-4xl mb-2">{product.title}</h2>
-        <div className="flex gap-2">
-          <svg className="w-4 h-4 text-yellow-300 ms-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"></path>
-          </svg>
-          <div>{product.rating.rate}</div>
-          <div>Reviews: {product.rating.count}</div>
+      <div className="p-4">
+        <h2 className="font-semibold text-lg mb-2 text-gray-800">{product.title}</h2>
+        <p className="text-sm text-gray-600 mb-2">Category: {product.category}</p>
+        <p className="text-sm text-gray-600 mb-2">Brand: {product.brand}</p>
+        <p className="text-sm text-gray-600 mb-2">SKU: {product.sku || 'N/A'}</p>
+        <p className="font-bold text-xl text-gray-800 mb-2">${product.price.toFixed(2)}</p>
+        {/* <p className="text-sm text-gray-700 mb-2">{product.description}</p> */}
+        <div className="flex justify-between items-center mb-2">
+          <span className="text-sm text-gray-600">Rating: {product.rating.rate}</span>
+          <span className="text-sm text-gray-600">({product.rating.count} reviews)</span>
         </div>
-        <span className="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10">
-          {product.category}
-        </span>
-        <p className="font-bold text-xl md:text-2xl lg:text-2xl">${product.price.toFixed(2)}</p>
+        <p className="text-sm text-gray-600 mb-4">{stockStatus}</p>
+        <div className="flex justify-between">
+          <Link href={`/products/${product.id}`} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors">
+            View Details
+          </Link>
+          {/* <Link href="/" className="bg-gray-200 text-gray-800 px-4 py-2 rounded hover:bg-gray-300 transition-colors">
+            Back Home
+          </Link> */}
+        </div>
       </div>
-    </Link>
+    </div>
   );
 }
