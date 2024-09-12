@@ -4,9 +4,9 @@ import Image from 'next/image';
 export default function ProductCard({ product }) {
   return (
     <Link href={`/products/${product.id}`} className="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
-      <div className="aspect-w-1 aspect-h-1 relative w-full h-48">
-        <Image
-          src={product.thumbnail}
+      <div className="aspect-w-1 aspect-h-1 relative">
+        <img
+          src={product.images[0]}
           alt={product.title}
           layout="fill"
           objectFit="cover"

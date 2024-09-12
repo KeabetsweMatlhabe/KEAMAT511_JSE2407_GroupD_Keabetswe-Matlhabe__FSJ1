@@ -9,7 +9,7 @@ export default async function Home({ searchParams }) {
 
   try {
     const data = await fetchProducts(page, limit);
-    const products = data.products || [];
+    const products = data || [];
     const total = data.total || 0;
 
     return (
