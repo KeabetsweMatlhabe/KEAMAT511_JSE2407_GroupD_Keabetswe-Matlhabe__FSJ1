@@ -1,3 +1,5 @@
+"use client"; // This ensures it's treated as a client component
+
 import { useState } from 'react';
 import Link from 'next/link';
 
