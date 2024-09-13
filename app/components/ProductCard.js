@@ -20,7 +20,7 @@ export default function ProductCard({ product }) {
         <img
           src={product.images[currentImage] || '/placeholder-image.jpg'}
           alt={product.title}
-          className="w-full h-48 object-cover"
+          className="w-full h-49 object-cover"
         />
         {product.images.length > 1 && (
           <>
@@ -48,7 +48,7 @@ export default function ProductCard({ product }) {
           <span className="text-sm text-gray-600">({product.rating.count} reviews)</span>
         </div>
         <p className="text-sm text-gray-600">{product.stock > 0 ? `${product.stock} left in stock` : 'Out of stock'}</p>
-        <Link href={`/products/${product.id}`} className="bg-blue-500 text-white px-4 py-2 mt-4 block text-center rounded hover:bg-blue-600 transition-colors">
+        <Link href={`/product/${product.id}`} className="bg-blue-500 text-white px-4 py-2 mt-4 block text-center rounded hover:bg-blue-600 transition-colors">
           View Details
         </Link>
       </div>

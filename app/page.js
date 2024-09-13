@@ -15,7 +15,7 @@ export default async function Home({ searchParams }) {
 
     return (
       <Layout>
-        <h1>BlackCurrent Store</h1>
+        {/* <h1>BlackCurrent Store</h1> */}
         <ProductGrid products={products} />
         <Pagination 
           currentPage={page} 

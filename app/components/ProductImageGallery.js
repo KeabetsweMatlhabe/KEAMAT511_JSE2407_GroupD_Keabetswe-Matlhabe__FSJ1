@@ -7,7 +7,7 @@ export default function ProductImageGallery({ images }) {
   return (
     <div>
       <div className="aspect-w-1 aspect-h-1 relative mb-4">
-        <Image
+        <img
           src={images[currentImage]}
           alt="Product"
           layout="fill"
