@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js E-Commerce Project
+# Project Overview
+This project is a Next.js-based e-commerce application that allows users to browse products, view detailed product information, and navigate through pages of products with pagination controls. It utilizes server-side rendering to fetch and display product data efficiently and provides a user-friendly interface for browsing and managing products.
 
-## Getting Started
+# User Stories
+## Product Listing
 
-First, run the development server:
+Fetch the first 20 products from the API.
+Fetch the next 20 products when navigating to a new page.
+Fetch only the necessary product data for the current page with pagination.
+Handle errors during product data fetching.
+Ensure product data is rendered on the server.
+Display a list of 20 products on the main products page.
+Implement pagination controls (next/previous, page numbers, or infinite scroll).
+Display a grid of product cards with images, prices, and categories.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Product Details
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Fetch and display product details from the API:
+- Show product title, description, images (with preview controls), price, category, tags, rating, stock, and availability.
+- Display reviews with reviewer name, date, comment, and rating.
+- Provide navigation to return to the products grid/list page.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Technologies Used
+Next.js: Framework for building server-rendered React applications.
+React: Library for building user interfaces.
+Tailwind CSS: Utility-first CSS framework for styling.
+JSON API: The API endpoint used to fetch product data (https://next-ecommerce-api.vercel.app/products).
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Setup and Installation
+- Clone the Repository
+- npm run dev
+## Features
+- Home Page: Displays a welcome message or landing content.
+- Products Page: Lists products with pagination controls.
+- Product Detail Page: Shows detailed information about a selected product.
+## Error Handling
+- Friendly error messages are shown if product data fails to load.
+- Loading states are displayed while new data is being fetched.
+## Code Structure
+pages/: Contains the main routes for the application.
+index.js: Home page.
+products/index.js: Product listing page with pagination.
+products/[id].js: Detailed product view page.
+components/: Reusable UI components such as Header and ProductCard.
+utils/: Utility functions for API fetching.
